@@ -1,4 +1,4 @@
-# eclass-prueba 
+<!-- # eclass-prueba 
 ###### Prueba Front End para Eclass  
 
 - Jade para compilar HTML.
@@ -11,4 +11,4 @@
 - jQuery para validaciones y como dependencia de Bootstrap.
 - WOW.js y Animate.css para animaciones de elementos.
 
-## Revisar en http://sanchezcarlos1986.github.io/eclass-prueba
+## Revisar en http://sanchezcarlos1986.github.io/eclass-prueba -->

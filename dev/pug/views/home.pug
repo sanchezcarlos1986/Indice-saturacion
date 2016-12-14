@@ -1,5 +1,23 @@
 h1 {{home.saludo}}
 
-//- ul(ng-repeat="item in vm.carreras")
-//- 	li {{item.carrera}}
-//- 	li {{item.ranking}}
+
+form
+	input(type="text" ng-model="buscador" placeholder="Buscar carrera" class="form-control")
+
+//- div {{home.carreras}}
+
+article(ng-repeat="item in home.carreras | filter : buscador" ng-if="buscador.length >= 0")
+	h4 {{item.carrera}}
+	i Tipo: {{item.tipo | lowercase}}
+	ul
+		li Rank Demanda {{item.rank_demanda}}
+		li Rank Post {{item.rank_post}}
+		li Rank Saturación {{item.rank_saturacion}}
+
+	.colores.flex-center
+		div(class="box {{item.campo_laboral}}") Campo Laboral
+		div(class="box {{item.competitividad}}") Competitividad 
+	hr
+
+
+

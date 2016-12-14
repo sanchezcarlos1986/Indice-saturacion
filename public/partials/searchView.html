@@ -1,0 +1,26 @@
+
+<h2 class="wow fadeInDown">Buscador de canciones</h2>
+<form>
+  <div class="buscar">
+    <label><span class="fa fa-filter"></span>
+      <input type="text" ng-model="text" id="buscador_spotify" placeholder="Ingrese al menos 3 caracteres" class="form-control iblock wow bounceIn"/>
+      <button ng-click="buscarEnSpotify()" id="buscar_btn" class="btn-buscar iblock">Buscar</button>
+    </label>
+    <label><span class="fa fa-search"></span>
+      <input type="text" ng-model="buscador" placeholder="Filtrar Canciones del Listado" id="filtrador" class="form-control"/>
+    </label>
+  </div>
+</form>
+<article ng-repeat="item in resultados | filter: buscador" ng-model="cancion" class="col-sm-3 wow bounceIn">
+  <figure><img ng-src="{{ item.album.images[0].url }}" alt="{{ item.album.name }}"/><span aria-hidden="true" class="fa fa-spotify"></span>
+    <audio controls="controls">
+      <source ng-src="{{item.preview_url | trusted}}" type="audio/ogg"/>
+      <source ng-src="{{item.preview_url | trusted}}" type="audio/mpeg"/>
+    </audio>
+  </figure>
+  <div class="detalles">
+    <div class="cancion">{{ item.name }}</div>
+    <div class="artista">{{ item.artists[0].name }}</div>
+    <acciones-item></acciones-item>
+  </div>
+</article>

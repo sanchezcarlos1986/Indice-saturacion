@@ -1,0 +1,29 @@
+{
+  "name": "Indice-Saturacion-TBJ",
+  "version": "1.0.0",
+  "description": "Indice-Saturacion-TBJ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sanchezcarlos1986/indice-saturacion.git"
+  },
+  "author": "Carlos Sánchez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sanchezcarlos1986/indice-saturacion/issues"
+  },
+  "homepage": "https://github.com/sanchezcarlos1986/indice-saturacion",
+  "devDependencies": {
+    "browser-sync": "^2.12.8",
+    "gulp": "^3.9.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-pug": "^3.2.0",
+    "gulp-stylus": "^2.3.1",
+    "gulp-watch": "^4.3.5",
+    "nib": "^1.1.0"
+  }
+}

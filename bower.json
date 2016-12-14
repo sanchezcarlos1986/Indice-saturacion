@@ -1,0 +1,24 @@
+{
+  "name": "Indice-Saturacion-TBJ",
+  "description": "Indice-Saturacion-TBJ",
+  "main": "index.js",
+  "authors": [
+    "Carlos Sánchez"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.1.1",
+    "angular": "1.6.0",
+    "angular-ui-router": "^0.3.2",
+    "font-awesome": "^4.7.0"
+  }
+}

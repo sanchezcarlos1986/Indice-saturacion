@@ -13,7 +13,7 @@
 			$stateProvider
 				.state('home', { // Home
 					url: '/',
-					templateUrl: './views/home.html',
+					templateUrl: './public/views/home.html',
 					controller: 'homeController',
 					controllerAs: 'home'
 				})

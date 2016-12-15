@@ -8,10 +8,10 @@ var gulp 		= require('gulp'),
 
 // browserSync
 gulp.task('browser-sync', function(){
-	browserSync.init(["./public/css/*.css" , "./public/js/*.js" , "./public/**/*.html"],{
+	browserSync.init(["./public/css/*.css" , "./public/js/*.js" , "./**/*.html"],{
 		open: true,
 		server: {
-			baseDir: "./public"
+			baseDir: "./"
 		}
 	});
 });
@@ -29,7 +29,7 @@ gulp.task('templates',['partials', 'views'], function() {
 		pretty : true 
 	}))	
 
-	.pipe(gulp.dest('./public')); 
+	.pipe(gulp.dest('./')); 
 
 });
 

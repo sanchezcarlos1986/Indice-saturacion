@@ -1,10 +1,38 @@
 var gulp 		= require('gulp'),
 	browserSync = require('browser-sync'),
-	stylus 		= require('gulp-stylus'),
+	sass 		= require('gulp-sass'),
+	cleanCSS 	= require('gulp-clean-css'),
 	pug 		= require('gulp-pug'),
 	plumber 	= require('gulp-plumber'),
-	nib 		= require('nib'),
+	uglify 		= require('gulp-uglify'),
+	concat 		= require('gulp-concat'),
+	notify 		= require('gulp-notify'),
+	del 		= require('del'),
+	inject 		= require('gulp-inject'),
+	imagemin 		= require('gulp-imagemin'),
+	mainBowerFiles = require('gulp-main-bower-files'),
+	series = require('stream-series'),
 	reload      = browserSync.reload;
+
+gulp.task('bower', function() {
+    return gulp.src('./bower.json')
+        .pipe(mainBowerFiles({
+            overrides: {
+                bootstrap: {
+                    main: [
+                        './dist/js/*.min.*',
+                        './dist/css/*.min.*',
+                        './dist/fonts/*.*'
+                    ]
+                },
+                jquery: { main: [ './dist/*.min.*' ] },
+                angular: { main: [ './*.min.js' ] },
+                'angular-ui-router': { main: [ './release/*.min.js' ] },
+                'font-awesome': { ignore: true}
+            }
+        }))
+        .pipe(gulp.dest('./public/vendor'));
+});
 
 // browserSync
 gulp.task('browser-sync', function(){
@@ -16,9 +44,14 @@ gulp.task('browser-sync', function(){
 	});
 });
 
-gulp.task('templates',['partials', 'views'], function() {
+gulp.task('templates',['views'], function() {
 
-  gulp.src('./dev/pug/index.pug')											
+  gulp.src('./dev/pug/index.pug')
+  	.pipe(notify({
+			title: 'Pug',
+			message: 'Todo ok con el html',
+			icon: __dirname + '/gulp/pug.png'
+		}))									
     .pipe(plumber({ 
 		handleError: function (err) {
 			console.log(err);
@@ -27,26 +60,28 @@ gulp.task('templates',['partials', 'views'], function() {
 	}))	
 	.pipe(pug({
 		pretty : true 
-	}))	
+	}))
 
-	.pipe(gulp.dest('./')); 
+	.pipe(gulp.dest('./'));
 
 });
 
-gulp.task('partials', function() {
+gulp.task('clean-img', function(cb) {
+	return del('img',cb);
+});
 
-	gulp.src('./dev/pug/partials/*.pug')											
-    .pipe(plumber({ 
-		handleError: function (err) {
-			console.log(err);
-			this.emit('end');
-		}
-	}))	
-	.pipe(pug({
-		pretty : true 
-	}))	
+gulp.task('images', ['clean-img'], function() {
+	gulp.src('./dev/img/*.*')
+	.pipe(imagemin())
+	.pipe(gulp.dest('./public/img')); 
+});
 
-	.pipe(gulp.dest('./public/partials')); 
+gulp.task('inject',['bower','templates'], function(){
+	var target = gulp.src('./index.html');
+	var vendor = gulp.src(['./public/vendor/**/*.js', './public/vendor/**/*.css'], {read: false});
+	var app = gulp.src(['./public/js/*.js', './public/css/*.css'], {read: false});
+	return target.pipe( inject(series(vendor, app)) )
+	.pipe(gulp.dest('./'));
 });
 
 gulp.task('views', function() {
@@ -65,31 +100,55 @@ gulp.task('views', function() {
 	.pipe(gulp.dest('./public/views')); 
 });
 
-
+gulp.task('scripts', function(){
+	gulp.src('./dev/js/*.js')
+	.pipe(notify({
+			title: 'Js',
+			message: 'Todo ok con el JS',
+			icon: __dirname + '/gulp/js.png'
+		}))
+	.pipe(plumber({ 
+		handleError: function (err) {
+			console.log(err);
+			this.emit('end');
+		}
+	}))
+	.pipe(uglify({
+		mangle: false
+	}))
+	.pipe(gulp.dest('./public/js'));
+});
 
 gulp.task('estilos', function(){
-	gulp.src('./dev/stylus/estilos.styl')
+	gulp.src('./dev/sass/estilos.scss')
+		.pipe(notify({
+			title: 'Sass',
+			message: 'Todo ok con los estilos',
+			icon: __dirname + '/gulp/sass.png'
+		}))	
 		.pipe(plumber({
 			handleError: function (err) {
 				console.log(err);
 				this.emit('end');
 			}
 		}))
-		.pipe(stylus({
-			compress: true, 
-			use: nib()
-	    }))
+		.pipe(sass())
+		.pipe(cleanCSS({compatibility: 'ie8'}))
 		.pipe(gulp.dest('./public/css')); 
 });
 
-
+gulp.task('copy', function(){
+	gulp.src(['./dev/*.json', './dev/*.ico'])
+	.pipe(gulp.dest('./public'));
+});
 
 // Watching for changes
-gulp.task('watch',['estilos', 'templates', 'browser-sync'], function(){
-	gulp.watch('./dev/stylus/*.styl', ['estilos']);
+gulp.task('watch',['estilos', 'templates', 'scripts', 'images', 'copy', 'browser-sync'], function(){
+	gulp.watch('./dev/sass/*.scss', ['estilos']);
+	gulp.watch('./dev/js/*.js', ['scripts']);
 	gulp.watch('./dev/pug/**/*.pug', ['templates']);
 });
 
 
 // Default task
- gulp.task('default', ['watch'], function() {});
+ gulp.task('default', ['inject','watch'], function() {});

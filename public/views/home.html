@@ -3,7 +3,7 @@
 <form>
   <input class="form-control" type="text" ng-model="buscador" placeholder="Buscar carrera"/>
 </form>
-<article ng-repeat="item in home.carreras | filter : buscador" ng-if="buscador.length &gt;= 0">
+<article ng-repeat="item in home.carreras | filter : buscador" ng-if="buscador.length &gt;= 4">
   <h4>{{item.carrera}}</h4><i>Tipo: {{item.tipo | lowercase}}</i>
   <ul>
     <li>Rank Demanda {{item.rank_demanda}}</li>

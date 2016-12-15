@@ -6,7 +6,7 @@ form
 
 //- div {{home.carreras}}
 
-article(ng-repeat="item in home.carreras | filter : buscador" ng-if="buscador.length >= 0")
+article(ng-repeat="item in home.carreras | filter : buscador" ng-if="buscador.length >= 4")
 	h4 {{item.carrera}}
 	i Tipo: {{item.tipo | lowercase}}
 	ul

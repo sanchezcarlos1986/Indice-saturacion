@@ -6,41 +6,18 @@ html(lang='es' ng-app="indiceSaturacion")
 	head
 		meta(charset='utf-8')
 		meta(name="viewport" ,content="width=device-width , initial-scale=1 ,maximum-scale=1")
-		link(href="./favicon.png" rel="shortcut icon" type="image/png")
-		//- link(rel="stylesheet", href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css")
-		link(rel="stylesheet", href="./public/css/bootstrap.min.css")
-		link(rel="stylesheet", href="./public/css/bootstrap-theme.min.css")
-		link(rel="stylesheet", href="./public/css/font-awesome.min.css")
-		link(rel="stylesheet", href="./public/css/estilos.css")
-		//- script(src="http://mynameismatthieu.com/WOW/dist/wow.min.js")
+		link(href="./favicon.ico" rel="shortcut icon" type="image/x-icon")
+		<!-- inject:css -->
+		<!-- endinject -->
 		<!--[if lt IE 9]>
 		script(src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js")
 		script(src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js")
 		<![endif]-->
 
 		title #{title}
-		//- script.
-		//- 	var wow = new WOW(
-		//- 		{
-		//- 			boxClass:     'wow', 
-		//- 			animateClass: 'animated', 
-		//- 			offset:       0,          
-		//- 			mobile:       false        
-		//- 		}
-		//- 	);
-		//- 	wow.init();
-
 
 	body
-		//- section.wow
 		ui-view
 
-		script(src="./public/js/jquery.min.js")
-		script(src="./public/js/bootstrap.min.js")
-		script(src="./public/js/angular.js")
-		script(src="./public/js/angular-ui-router.min.js")
-		//- script(src="./public/js/angular-socialshare.js")
-		script(src="./public/js/app.js")
-		script(src="./public/js/controllers.js")
-		script(src="./public/js/directives.js")
-		script(src="./public/js/filters.js")
+		<!-- inject:js -->
+		<!-- endinject -->

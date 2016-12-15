@@ -1,19 +1,59 @@
 
-<h1>{{home.saludo}}</h1>
-<form>
-  <input class="form-control" type="text" ng-model="buscador" placeholder="Buscar carrera"/>
-</form>
-<article ng-repeat="item in home.carreras | filter : buscador" ng-if="buscador.length &gt;= 4">
-  <h4>{{item.carrera}}</h4><i>Tipo: {{item.tipo | lowercase}}</i>
-  <ul>
-    <li>Rank Demanda {{item.rank_demanda}}</li>
-    <li>Rank Post {{item.rank_post}}</li>
-    <li>Rank Saturación {{item.rank_saturacion}}</li>
-  </ul>
-  <div class="colores flex-center">
-    <div class="box {{item.campo_laboral}}">Campo Laboral</div>
-    <div class="box {{item.competitividad}}">Competitividad </div>
-    <div style="margin-left: 1em"><---- Buena carrera</div>
+<header><img src="./public/img/logo_chico.jpg" alt="Buena pega, Mejor vida"/><img src="./public/img/logo_chico.jpg" alt="Trabajando.com"/></header>
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <section><img src="./public/img/logo_chico.jpg" alt="Saturación Carreras 2016"/>
+          <p>Porque sabemos que <strong>elegir la carrera</strong> que vas a estudiar es una decisión difícil y trascendente para tu futuro, es que <strong>queremos entregaste esta guía laboral por carrera,</strong> donde encontrarás <strong>información actualizada sobre la empleabilidad</strong> de cada una de ellas.</p>
+        </section>
+        <section>
+          <select ng-change="home.elegirCarrera()" ng-model="home.carreraElegida">
+            <option value="">>---Elige una carrera---<</option>
+            <option ng-repeat="item in home.carreras | orderBy:'carrera' ">{{ item.carrera }}</option>
+          </select>
+          <article class="carrera-info" ng-repeat="item in home.carreras | filter : home.carreraElegida" ng-if="home.carreraElegida">
+            <p>Carrera riesgosa Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+            <div>
+              <div class="demanda">
+                <div class="box">{{item.rank_demanda}}</div><strong>Ranking Demanda</strong>
+              </div>
+              <div class="postulaciones">
+                <div class="box">{{item.rank_post}}</div><strong>Ranking Postulaciones</strong>
+              </div>
+              <div class="saturacion">
+                <div class="box">{{item.rank_saturacion}}</div><strong>Ranking Saturación</strong>
+              </div>
+            </div>
+          </article>
+        </section>
+        <section>
+          <article>
+            <label>Ranking Demanda</label>
+            <p>A menor ranking la carrera se encuentra dentro de las más solicitadas por las empresas en Trabajando.com, es decir, un mayor campo laboral. Color Rojo indica baja demanda; Color Amarillo indica demanda media; Color Verde indica alta demanda.</p>
+          </article>
+          <article>
+            <label>Ranking de Competitividad</label>
+            <p>A menor ranking la carrera se encuentra dentro de las más solicitadas por las empresas en Trabajando.com, es decir, un mayor campo laboral. Color Rojo indica baja demanda; Color Amarillo indica demanda media; Color Verde indica alta demanda.</p>
+          </article>
+          <article>
+            <label>Ranking Saturación</label>
+            <p>A menor ranking la carrera se encuentra dentro de las más solicitadas por las empresas en Trabajando.com, es decir, un mayor campo laboral. Color Rojo indica baja demanda; Color Amarillo indica demanda media; Color Verde indica alta demanda.</p>
+          </article>
+        </section>
+      </div>
+    </div>
   </div>
-  <hr/>
-</article>
+</main>
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8">
+        <p>Este estudio se construye a partir de las publicaciones de avisos de reclutamiento en la Comunidad Laboral de Trabajando.com y las postulaciones recibidas en cada uno de ellos.</p>
+        <p>Muchos de los avisos de reclutamiento contienen específicamente las carreras e instituciones que preferentemente requieren los reclutadores, las cuales se ordenan de acuerdo a la clasificación del Ministerio de Educación (Área Carrera Genérica) que agrupa las más de 14.700 carreras reconocidas por el ministerio en 283.</p>
+        <p>El estudio considera 202 de las 283 carreras genéricas, las cuales pueden ser representadas razonablemente.</p>
+      </div>
+      <div class="col-sm-3 col-sm-offset-1"><img src="./public/img/logo_chico.jpg" alt="Trabajando.com"/></div>
+    </div>
+  </div>
+</footer>

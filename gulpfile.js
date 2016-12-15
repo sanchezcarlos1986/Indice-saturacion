@@ -146,7 +146,7 @@ gulp.task('copy', function(){
 gulp.task('watch',['estilos', 'templates', 'scripts', 'images', 'copy', 'browser-sync'], function(){
 	gulp.watch('./dev/sass/*.scss', ['estilos']);
 	gulp.watch('./dev/js/*.js', ['scripts']);
-	gulp.watch('./dev/pug/**/*.pug', ['templates']);
+	gulp.watch('./dev/pug/**/*.pug', ['inject']);
 });
 
 

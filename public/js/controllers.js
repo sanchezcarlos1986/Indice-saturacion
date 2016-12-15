@@ -1,1 +1,1 @@
-!function(){function HomeController($http){var vm=this;vm.saludo="Índice Saturación",$http.get("./public/carreras.json").success(function(resultado){vm.carreras=resultado})}angular.module("homeController",[]).controller("homeController",HomeController)}();
+!function(){function HomeController($http){var vm=this;vm.saludo="Índice Saturación",$http.get("./public/carreras.json").success(function(resultado){vm.carreras=resultado}),vm.elegirCarrera=function(){console.log(vm.carreraElegida)}}angular.module("homeController",[]).controller("homeController",HomeController)}();

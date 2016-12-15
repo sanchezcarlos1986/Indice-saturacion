@@ -12,6 +12,10 @@
 			.success(function(resultado){
 				vm.carreras = resultado;
 			});
+
+			vm.elegirCarrera = function(){
+				console.log(vm.carreraElegida);
+			}
 		}
 
 })();

@@ -13,12 +13,12 @@
 				vm.carreras = resultado;
 			});
 
-			vm.elegirCarrera = function(){
-				var campo_laboral = vm.carreras[0].campo_laboral;
-				var competitividad = vm.carreras[0].competitividad;
-				var comparacion = campo_laboral+'/'+competitividad;
-				console.log(vm.carreraElegida);
-			}
+			// vm.elegirCarrera = function(){
+			// 	var campo_laboral = vm.carreras[0].campo_laboral;
+			// 	var competitividad = vm.carreras[0].competitividad;
+			// 	var comparacion = campo_laboral+'/'+competitividad;
+			// 	console.log(vm.carreraElegida);
+			// }
 		}
 
 })();

@@ -1,6 +1,6 @@
 header
-	img(src="./public/img/logo_chico.jpg" alt="Buena pega, Mejor vida")
-	img(src="./public/img/logo_chico.jpg" alt="Trabajando.com")
+	//- img(src="./public/img/logo_chico.jpg" alt="Buena pega, Mejor vida")
+	//- img(src="./public/img/logo_chico.jpg" alt="Trabajando.com")
 
 main
 	//- div {{home.carreras}}
@@ -9,20 +9,35 @@ main
 			.col-sm-6
 				//- Texto inicial
 				section
-					img(src="./public/img/logo_chico.jpg" alt="Saturación Carreras 2016")
+					//- img(src="./public/img/logo_chico.jpg" alt="Saturación Carreras 2016")
 					p Porque sabemos que #[strong elegir la carrera] que vas a estudiar es una decisión difícil y trascendente para tu futuro, es que #[strong queremos entregaste esta guía laboral por carrera,] donde encontrarás #[strong información actualizada sobre la empleabilidad] de cada una de ellas.
 
 				//- Form
 				section
-					select(ng-change="home.elegirCarrera(index)" ng-model="home.carreraElegida")
+					select(ng-model="home.carreraElegida")
 						option(value="") >---Elige una carrera---<
 						option(ng-repeat="item in home.carreras | orderBy:'carrera' " ng-model="item.id") {{ item.carrera }}
 
 					//- Acá se itera sobre la info de la carrera
 					article(class="carrera-info" ng-repeat="item in home.carreras | filter : home.carreraElegida" ng-if="home.carreraElegida")
-						p Carrera riesgosa Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
 
-						strong el id es {{item.id}}
+						p(ng-if="item.campo_laboral == 'bueno' && item.competitividad == 'bueno' ") Carrera Ideal, mucho campo laboral y poca disponibilidad de profesionales para el mercado.
+
+						p(ng-if="item.campo_laboral == 'bueno' && item.competitividad == 'medio' ") Buena Carrera, ya que tiene un campo laboral amplio y número de profesionales adecuado para cubrir la demanda, en este segmento encontraras carreras muy interesante con niveles de saturación medios y bajos.
+
+						p(ng-if="item.campo_laboral == 'bueno' && item.competitividad == 'malo' ") Carrera Riesgosa, ya que si bien el campo laboral es amplio tiene una gran cantidad de profesionales aptos para cubrir las vancantes, en este segmento te encontraras careras de alta y baja saturación, ¡elije bien!.
+
+						p(ng-if="item.campo_laboral == 'medio' && item.competitividad == 'bueno' ") Carerra Interesante, ya que posee un campo laboral atractivo y pocos profesionales capaces de cubrir las vacantes, en este segmento te encontraras con interesantes carreras con niveles de saturación bajos y probablemente emergentes.
+
+						p(ng-if="item.campo_laboral == 'medio' && item.competitividad == 'medio' ") Carrera de Nicho, tiene un campo laboral medio y una cantidad de profesionales adecuados a las necesidades. La dispersión en la Saturación de este segmento es amplia, pero en general son carreras estables donde puedes encontrar interesantes oportunidades.
+
+						p(ng-if="item.campo_laboral == 'medio' && item.competitividad == 'malo' ") Carrera Riesgosa, ya que si bien el campo laboral medio, pero cantidad de profesionales que exceden las necesidades de mercado. Encontraras carreras con niveles de saturación alta, salvo un par de excepciones. Debes elegir muy bien!.
+
+						p(ng-if="item.campo_laboral == 'malo' && item.competitividad == 'bueno' ") Carreras Emergentes, un campo laboral reducido, pero tambien muy pocos candidatos, pueden tranformarse en oportunidad, pero su vez pueden ser riesgosas. Ojo con tu elección.
+
+						p(ng-if="item.campo_laboral == 'malo' && item.competitividad == 'medio' ") Carrera de Nicho, tiene un campo estrecho y una cantidad de profesionales adecuados a las necesidades, por lo cual puede ser una oportunidad, pero a su vez pueden ser muy riesgosa.
+
+						p(ng-if="item.campo_laboral == 'malo' && item.competitividad == 'malo' ") Carrera con con bajo campo laboral y alto número de postulantes, segmento más riesgoso.
 
 						//- Ranking
 						div()
@@ -59,4 +74,4 @@ footer
 				p El estudio considera 202 de las 283 carreras genéricas, las cuales pueden ser representadas razonablemente.
 				p La información contenida en el presente estudio refleja el comportamiento de la oferta y demanda de empleo en Trabajando.com, durante el 2016, por lo que algunas carreras, por su naturaleza y uso de otras fuentes de reclutamiento, podrían no estar representadas correctamente. Se recomienda comparar estos datos con otras fuentes de información o expertos.
 			.col-sm-3.col-sm-offset-1
-				img(src="./public/img/logo_chico.jpg" alt="Trabajando.com")
+				//- img(src="./public/img/logo_chico.jpg" alt="Trabajando.com")

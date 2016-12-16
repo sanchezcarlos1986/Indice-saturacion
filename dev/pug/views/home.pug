@@ -14,13 +14,15 @@ main
 
 				//- Form
 				section
-					select(ng-change="home.elegirCarrera()" ng-model="home.carreraElegida")
+					select(ng-change="home.elegirCarrera(index)" ng-model="home.carreraElegida")
 						option(value="") >---Elige una carrera---<
-						option(ng-repeat="item in home.carreras | orderBy:'carrera' ") {{ item.carrera }}
+						option(ng-repeat="item in home.carreras | orderBy:'carrera' " ng-model="item.id") {{ item.carrera }}
 
 					//- Acá se itera sobre la info de la carrera
 					article(class="carrera-info" ng-repeat="item in home.carreras | filter : home.carreraElegida" ng-if="home.carreraElegida")
 						p Carrera riesgosa Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+
+						strong el id es {{item.id}}
 
 						//- Ranking
 						div()

@@ -36,7 +36,7 @@ gulp.task('bower', function() {
 
 // browserSync
 gulp.task('browser-sync', function(){
-	browserSync.init(["./public/css/*.css" , "./public/js/*.js" , "./**/*.html"],{
+	browserSync.init(["./public/assets/css/*.css" , "./public/assets/js/*.js" , "./**/*.html"],{
 		open: true,
 		server: {
 			baseDir: "./"
@@ -73,13 +73,13 @@ gulp.task('clean-img', function(cb) {
 gulp.task('images', ['clean-img'], function() {
 	gulp.src('./dev/img/*.*')
 	.pipe(imagemin())
-	.pipe(gulp.dest('./public/img')); 
+	.pipe(gulp.dest('./public/assets/img')); 
 });
 
-gulp.task('inject',['bower','templates'], function(){
+gulp.task('inject',['bower','templates', 'scripts', 'estilos'], function(){
 	var target = gulp.src('./index.html');
 	var vendor = gulp.src(['./public/vendor/**/*.js', './public/vendor/**/*.css'], {read: false});
-	var app = gulp.src(['./public/js/*.js', './public/css/*.css'], {read: false});
+	var app = gulp.src(['./public/assets/**/*.js', './public/assets/**/*.css'], {read: false});
 	return target.pipe( inject(series(vendor, app)) )
 	.pipe(gulp.dest('./'));
 });
@@ -116,7 +116,7 @@ gulp.task('scripts', function(){
 	.pipe(uglify({
 		mangle: false
 	}))
-	.pipe(gulp.dest('./public/js'));
+	.pipe(gulp.dest('./public/assets/js'));
 });
 
 gulp.task('estilos', function(){
@@ -134,16 +134,16 @@ gulp.task('estilos', function(){
 		}))
 		.pipe(sass())
 		.pipe(cleanCSS({compatibility: 'ie8'}))
-		.pipe(gulp.dest('./public/css')); 
+		.pipe(gulp.dest('./public/assets/css')); 
 });
 
-gulp.task('copy', function(){
-	gulp.src(['./dev/*.json', './dev/*.ico'])
-	.pipe(gulp.dest('./public'));
+gulp.task('copy-fonts', function(){
+	gulp.src('./dev/fonts/*.*')
+	.pipe(gulp.dest('./public/assets/fonts')); 
 });
 
 // Watching for changes
-gulp.task('watch',['estilos', 'templates', 'scripts', 'images', 'copy', 'browser-sync'], function(){
+gulp.task('watch',['estilos', 'templates', 'scripts', 'copy-fonts', 'images', 'browser-sync'], function(){
 	gulp.watch('./dev/sass/*.scss', ['estilos']);
 	gulp.watch('./dev/js/*.js', ['scripts']);
 	gulp.watch('./dev/pug/**/*.pug', ['inject']);

@@ -1,6 +1,22 @@
+@import './fonts';
+
 $bueno : #2ecc71;
 $medio : #f1c40f;
 $malo : #c0392b;
+$verde : green;
+$rojo : red;
+$burdeo : purple;
+
+.bueno{ background: $bueno;	}
+.medio{ background: $medio;	}
+.malo{ background: $malo; }
+.verde{ background: $verde;	}
+.rojo{ background: $rojo;	}
+.burdeo{ background: $burdeo; }
+
+body{
+	font-family: 'Apex New Book';
+}
 
 .flex-center{	
 	align-items: center;
@@ -8,22 +24,12 @@ $malo : #c0392b;
 	justify-content: center;
 }
 
-.box{	
-	align-items: center;
+.circle{	
+	border-radius: 100%;
 	color: white;
-	display: flex;
 	height: 30px;
-	justify-content: center;
-	width: 200px;
-	&.bueno{
-		background: $bueno;
-	}
-	&.medio{
-		background: $medio;
-	}
-	&.malo{
-		background: $malo;
-	}
+	width: 30px;
+	@extend .flex-center;	
 }
 
 section{
@@ -31,3 +37,10 @@ section{
 	margin: 1em 0;
 	padding: 1em 0;
 }
+
+label{
+	color: white;
+	padding: 6px;
+}
+
+@import './mediaqueries';

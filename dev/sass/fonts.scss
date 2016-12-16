@@ -1,0 +1,25 @@
+$rutaFonts : '../fonts';
+
+@font-face {
+	font-family: 'Apex New Book';
+	src: url('#{$rutaFonts}/ApexNew-Book.eot');
+	src: url('#{$rutaFonts}/ApexNew-Book.eot?#iefix') format('embedded-opentype'),
+		url('#{$rutaFonts}/ApexNew-Book.woff2') format('woff2'),
+		url('#{$rutaFonts}/ApexNew-Book.woff') format('woff'),
+		url('#{$rutaFonts}/ApexNew-Book.ttf') format('truetype'),
+		url('#{$rutaFonts}/ApexNew-Book.svg#ApexNew-Book') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Apex New';
+	src: url('#{$rutaFonts}/ApexNew-Bold.eot');
+	src: url('#{$rutaFonts}/ApexNew-Bold.eot?#iefix') format('embedded-opentype'),
+		url('#{$rutaFonts}/ApexNew-Bold.woff2') format('woff2'),
+		url('#{$rutaFonts}/ApexNew-Bold.woff') format('woff'),
+		url('#{$rutaFonts}/ApexNew-Bold.ttf') format('truetype'),
+		url('#{$rutaFonts}/ApexNew-Bold.svg#ApexNew-Bold') format('svg');
+	font-weight: bold;
+	font-style: normal;
+}

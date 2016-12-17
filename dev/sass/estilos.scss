@@ -118,6 +118,7 @@ section{
 
 .carrera-info{
 	@extend .border-bottom;
+	padding-top: 1em;
 	padding-bottom: 1em;
 	p{
 		@extend .border-bottom;

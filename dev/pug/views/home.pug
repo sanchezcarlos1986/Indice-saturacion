@@ -22,7 +22,7 @@ main
 						option(ng-repeat="item in home.carreras | orderBy:'carrera' " ng-model="item.id") {{ item.carrera }}
 
 					//- Acá se itera sobre la info de la carrera
-					article(class="carrera-info" ng-repeat="item in home.carreras | filter : home.carreraElegida" ng-if="home.carreraElegida")
+					article(class="carrera-info" ng-repeat="item in home.carreras | filter : home.carreraElegida : true" ng-if="home.carreraElegida")
 
 						p(ng-if="item.campo_laboral == 'bueno' && item.competitividad == 'bueno' ") Carrera Ideal, mucho campo laboral y poca disponibilidad de profesionales para el mercado.
 

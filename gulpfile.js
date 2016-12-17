@@ -37,7 +37,7 @@ gulp.task('bower', function() {
 // browserSync
 gulp.task('browser-sync', function(){
 	browserSync.init(["./public/assets/css/*.css" , "./public/assets/js/*.js" , "./**/*.html"],{
-		open: false,
+		open: true,
 		server: {
 			baseDir: "./"
 		}

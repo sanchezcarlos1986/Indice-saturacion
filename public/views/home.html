@@ -14,7 +14,7 @@
             <option value="">Elige una carrera</option>
             <option ng-repeat="item in home.carreras | orderBy:'carrera' " ng-model="item.id">{{ item.carrera }}</option>
           </select>
-          <article class="carrera-info" ng-repeat="item in home.carreras | filter : home.carreraElegida" ng-if="home.carreraElegida">
+          <article class="carrera-info" ng-repeat="item in home.carreras | filter : home.carreraElegida : true" ng-if="home.carreraElegida">
             <p ng-if="item.campo_laboral == 'bueno' &amp;&amp; item.competitividad == 'bueno' ">Carrera Ideal, mucho campo laboral y poca disponibilidad de profesionales para el mercado.</p>
             <p ng-if="item.campo_laboral == 'bueno' &amp;&amp; item.competitividad == 'medio' ">Buena Carrera, ya que tiene un campo laboral amplio y número de profesionales adecuado para cubrir la demanda, en este segmento encontraras carreras muy interesante con niveles de saturación medios y bajos.</p>
             <p ng-if="item.campo_laboral == 'bueno' &amp;&amp; item.competitividad == 'malo' ">Carrera Riesgosa, ya que si bien el campo laboral es amplio tiene una gran cantidad de profesionales aptos para cubrir las vancantes, en este segmento te encontraras careras de alta y baja saturación, ¡elije bien!.</p>

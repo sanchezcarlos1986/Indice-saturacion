@@ -1,9 +1,11 @@
-@media screen and (max-width: 768px){
+@media screen and (max-width: 800px){
 	body{
-		background-color: #b7c3d9; 
+		background-color: #E4E8F4; 
 		background-image: none;
 	}
+}
 
+@media screen and (max-width: 768px){
 	p{
 		text-align: justify;
 	}
@@ -15,6 +17,11 @@
 		img{
 			margin-top: 2em; 
 		}
+	}
+
+	select.form-control{
+		border: 3px solid #999;
+		width: 100%;
 	}
 
 	img,

@@ -8,6 +8,7 @@ $rojo : red;
 $burdeo : #890e0e;
 $tbj : #386fa8;
 $azul : #0f2553;
+$gris : #6e7174;
 
 .bueno{ background: $bueno;	}
 .medio{ background: $medio;	}
@@ -81,6 +82,8 @@ p{
 .circle{
 	$ancho: 65px;
 	border-radius: 100%;
+	font-family: 'Myriad Pro';
+	font-weight: bold;
 	color: white;
 	height: $ancho;
 	font-size: 1.5em;
@@ -121,8 +124,9 @@ section{
 	}
 }
 
-select{
+select.form-control{
 	margin-bottom: 1em;
+	width: inherit;
 }
 
 label{

@@ -1,5 +1,46 @@
 @media screen and (max-width: 480px){
 	body{
-		background: #ddd;
+		background-color: #b7c3d9;
+		background-image: none;
 	}
+
+	p{
+		text-align: justify;
+	}
+
+	footer{
+		.row{
+			display: block;
+		}
+		img{
+			margin-top: 2em; 
+		}
+	}
+
+	img,
+	img[class^="img-"]{
+		display: block;
+		margin: 0 auto;
+		width: 90%;
+	}
+
+	img[class^="img-"]{
+		padding: 0;
+		margin-bottom: 10px;
+	}
+	// .img{
+	// 	&-saturacion,
+	// 	{
+	// 		padding-left: 50px;
+	// 		width: 500px;
+	// 	}
+	// 	{
+	// 		padding-left: 40px;
+	// 		width: 400px;
+	// 	}
+	// 	&-ranking{
+	// 		padding-left: 60px;
+	// 		width: 300px;
+	// 	}
+	// }
 }

@@ -1,21 +1,24 @@
 header
-	//- img(src="./public/img/logo_chico.jpg" alt="Buena pega, Mejor vida")
-	//- img(src="./public/img/logo_chico.jpg" alt="Trabajando.com")
+	img(src="./public/assets/img/buena-pega-mejor-vida.png" alt="Buena pega, Mejor vida" class="logo1")
+	h1
+		img(src="./public/assets/img/trabajando-com.png" alt="Trabajando.com" class="logo2")
 
 main
 	//- div {{home.carreras}}
 	.container
 		.row
-			.col-sm-6 
+			.col-sm-7
 				//- Texto inicial
-				section
-					//- img(src="./public/img/logo_chico.jpg" alt="Saturación Carreras 2016")
+				section.llamado.border-bottom
+					img(src="./public/assets/img/saturacion-carreras-2016.png" alt="Saturación Carreras 2016" class="img-saturacion")
 					p Porque sabemos que #[strong elegir la carrera] que vas a estudiar es una decisión difícil y trascendente para tu futuro, es que #[strong queremos entregaste esta guía laboral por carrera,] donde encontrarás #[strong información actualizada sobre la empleabilidad] de cada una de ellas.
 
 				//- Form
 				section
+					img(src="./public/assets/img/analizar-carrera.png" alt="Analizar Carrera" class="img-analizar")
+
 					select(ng-model="home.carreraElegida" class="form-control")
-						option(value="") >---Elige una carrera---<
+						option(value="") Elige una carrera
 						option(ng-repeat="item in home.carreras | orderBy:'carrera' " ng-model="item.id") {{ item.carrera }}
 
 					//- Acá se itera sobre la info de la carrera
@@ -39,20 +42,22 @@ main
 
 						p(ng-if="item.campo_laboral == 'malo' && item.competitividad == 'malo' ") Carrera con con bajo campo laboral y alto número de postulantes, segmento más riesgoso.
 
+						img(src="./public/assets/img/ranking.png" alt="Ranking" class="img-ranking")
+
 						//- Ranking
-						div.flex-center
-							.demanda
+						div.ranking
+							.demanda.center
 								.circle.verde {{item.rank_demanda}}
-								strong Ranking Demanda
-							.postulaciones
+								strong Ranking #[br] Demanda
+							.postulaciones.center
 								.circle.rojo {{item.rank_post}}
-								strong Ranking Postulaciones
-							.saturacion
+								strong Ranking #[br] Postulaciones
+							.saturacion.center
 								.circle.burdeo {{item.rank_saturacion}}
-								strong Ranking Saturación
+								strong Ranking #[br] Saturación
 
 				//- Leyendas
-				section
+				section.leyendas
 					article
 						label.verde Ranking Demanda
 						p A menor ranking la carrera se encuentra dentro de las más solicitadas por las empresas en Trabajando.com, es decir, un mayor campo laboral, Color Rojo indica baja demanda, color amarillo indica demanda media, color verde indica, alta demanda.
@@ -73,5 +78,5 @@ footer
 				p Muchos de los avisos de reclutamiento contienen específicamente las carreras e instituciones que preferentemente requieren los reclutadores, las cuales se ordenan de acuerdo a la clasificación del Ministerio de Educación (Área Carrera Genérica) que agrupa las más de 14.700 carreras reconocidas por el ministerio en 283.
 				p El estudio considera 202 de las 283 carreras genéricas, las cuales pueden ser representadas razonablemente.
 				p La información contenida en el presente estudio refleja el comportamiento de la oferta y demanda de empleo en Trabajando.com, durante el 2016, por lo que algunas carreras, por su naturaleza y uso de otras fuentes de reclutamiento, podrían no estar representadas correctamente. Se recomienda comparar estos datos con otras fuentes de información o expertos.
-			.col-sm-3.col-sm-offset-1
-				//- img(src="./public/img/logo_chico.jpg" alt="Trabajando.com")
+			.col-sm-4
+				img(src="./public/assets/img/trabajando-com.png" alt="Trabajando.com" class="fullwidth")

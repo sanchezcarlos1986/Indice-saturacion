@@ -3,9 +3,11 @@
 $bueno : #2ecc71;
 $medio : #f1c40f;
 $malo : #c0392b;
-$verde : green;
+$verde : #238c00;
 $rojo : red;
-$burdeo : purple;
+$burdeo : #890e0e;
+$tbj : #386fa8;
+$azul : #0f2553;
 
 .bueno{ background: $bueno;	}
 .medio{ background: $medio;	}
@@ -15,7 +17,59 @@ $burdeo : purple;
 .burdeo{ background: $burdeo; }
 
 body{
-	font-family: 'Apex New Book';
+	background: url('../img/background.jpg') center 0 / cover;
+	font: 16px 'Calibri';
+}
+
+.img{
+	&-saturacion{
+		padding-left: 50px;
+		width: 500px;
+	}
+	&-analizar{
+		padding-left: 40px;
+		width: 400px;
+	}
+	&-ranking{
+		padding-left: 60px;
+		width: 300px;
+	}
+}
+
+.leyendas{
+	article{
+		margin-bottom: 1.5em;
+	}
+}
+
+header{
+	background: $tbj;
+	display: flex;
+	justify-content: space-between;
+	padding: 20px;
+	align-items: center;
+	.logo1{
+		width: 300px;
+	}
+	.logo2{
+		width: 250px;
+	}
+	h1{
+		margin: 0;
+	}
+}
+
+p{
+	color: #333333;
+	strong{
+		color: $azul;
+	}
+}
+
+.llamado{
+	p{
+		font-size: 20px;
+	}
 }
 
 .flex-center{	
@@ -24,23 +78,73 @@ body{
 	justify-content: center;
 }
 
-.circle{	
+.circle{
+	$ancho: 65px;
 	border-radius: 100%;
 	color: white;
-	height: 30px;
-	width: 30px;
+	height: $ancho;
+	font-size: 1.5em;
+	width: $ancho;
+	margin: 0 auto 10px;
 	@extend .flex-center;	
 }
 
+.border-bottom{
+	border-bottom: 1px solid $tbj;
+}
+
+.ranking{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin-top: 1em;
+	div{
+		line-height: 1em;
+	}
+}
+
 section{
-	border-bottom: 1px solid;
 	margin: 1em 0;
 	padding: 1em 0;
 }
 
+.center{
+	text-align: center;
+}
+
+.carrera-info{
+	@extend .border-bottom;
+	padding-bottom: 1em;
+	p{
+		@extend .border-bottom;
+		padding-bottom: 1em;
+	}
+}
+
+select{
+	margin-bottom: 1em;
+}
+
 label{
 	color: white;
-	padding: 6px;
+	padding: 4px 7px;
+}
+
+footer{
+	background: $tbj;
+	border-top: 4px solid white;
+	color: white;
+	padding: 20px 0;
+	p{
+		color: white;
+	}
+	img{
+		width: 100%;
+	}
+	.row{
+		display: flex;
+		align-items: center;
+	}
 }
 
 @import './mediaqueries';

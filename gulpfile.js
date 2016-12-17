@@ -37,7 +37,7 @@ gulp.task('bower', function() {
 // browserSync
 gulp.task('browser-sync', function(){
 	browserSync.init(["./public/assets/css/*.css" , "./public/assets/js/*.js" , "./**/*.html"],{
-		open: true,
+		open: false,
 		server: {
 			baseDir: "./"
 		}
@@ -80,7 +80,7 @@ gulp.task('inject',['bower','templates', 'scripts', 'estilos'], function(){
 	var target = gulp.src('./index.html');
 	var vendor = gulp.src(['./public/vendor/**/*.js', './public/vendor/**/*.css'], {read: false});
 	var app = gulp.src(['./public/assets/**/*.js', './public/assets/**/*.css'], {read: false});
-	return target.pipe( inject(series(vendor, app)) )
+	return target.pipe( inject(series(vendor, app), {relative: true})  )
 	.pipe(gulp.dest('./'));
 });
 

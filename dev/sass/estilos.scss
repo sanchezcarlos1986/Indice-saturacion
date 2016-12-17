@@ -19,7 +19,7 @@ $gris : #6e7174;
 
 body{
 	background: url('../img/background.jpg') center 0 / cover;
-	font: 16px 'Calibri';
+	font: 16px 'Apex New Book';
 }
 
 .img{
@@ -62,6 +62,7 @@ header{
 
 p{
 	color: #333333;
+	line-height: 24px; 
 	strong{
 		color: $azul;
 	}
@@ -82,7 +83,7 @@ p{
 .circle{
 	$ancho: 65px;
 	border-radius: 100%;
-	font-family: 'Myriad Pro';
+	font-family: 'Apex New Bold';
 	font-weight: bold;
 	color: white;
 	height: $ancho;
@@ -131,7 +132,8 @@ select.form-control{
 
 label{
 	color: white;
-	padding: 4px 7px;
+	margin-bottom: 10px;
+	padding: 6px 7px;
 }
 
 footer{

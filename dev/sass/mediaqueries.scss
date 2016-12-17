@@ -1,6 +1,6 @@
-@media screen and (max-width: 480px){
+@media screen and (max-width: 768px){
 	body{
-		background-color: #b7c3d9;
+		background-color: #b7c3d9; 
 		background-image: none;
 	}
 
@@ -9,7 +9,7 @@
 	}
 
 	footer{
-		.row{
+		.row{ 
 			display: block;
 		}
 		img{
@@ -28,19 +28,17 @@
 		padding: 0;
 		margin-bottom: 10px;
 	}
-	// .img{
-	// 	&-saturacion,
-	// 	{
-	// 		padding-left: 50px;
-	// 		width: 500px;
-	// 	}
-	// 	{
-	// 		padding-left: 40px;
-	// 		width: 400px;
-	// 	}
-	// 	&-ranking{
-	// 		padding-left: 60px;
-	// 		width: 300px;
-	// 	}
-	// }
+}
+
+@media screen and (max-width: 480px){
+	header{
+		flex-direction: column-reverse;
+		.logo2{
+			margin-bottom: 10px;
+			width: 90%;
+		}
+		.logo1{
+			width: 80%; 
+		}
+	}
 }

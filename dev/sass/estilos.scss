@@ -18,43 +18,16 @@ $gris : #6e7174;
 .burdeo{ background: $burdeo; }
 
 body{
-	background: url('../img/background.jpg') center 0 / cover;
+	background: url('../img/background.jpg') center 0;
 	font: 16px 'Apex New Book';
 }
 
-.img{
-	&-saturacion{
-		padding-left: 50px;
-		width: 500px;
-	}
-	&-analizar{
-		padding-left: 40px;
-		width: 400px;
-	}
-	&-ranking{
-		padding-left: 60px;
-		width: 300px;
-	}
-}
-
-.leyendas{
-	article{
-		margin-bottom: 1.5em;
-	}
-}
-
 header{
+	align-items: center;
 	background: $tbj;
 	display: flex;
 	justify-content: space-between;
 	padding: 20px;
-	align-items: center;
-	.logo1{
-		width: 300px;
-	}
-	.logo2{
-		width: 250px;
-	}
 	h1{
 		margin: 0;
 	}
@@ -65,6 +38,55 @@ p{
 	line-height: 24px; 
 	strong{
 		color: $azul;
+	}
+}
+
+section{
+	margin: 1em 0;
+	padding: 1em 0;
+}
+
+select.form-control{
+	margin-bottom: 1em;
+	width: inherit;
+}
+
+label{
+	color: white;
+	margin-bottom: 10px;
+	padding: 6px 7px;
+}
+
+footer{
+	background: $tbj;
+	border-top: 4px solid white;
+	color: white;
+	padding: 20px 0;
+	p{
+		color: white;
+	}
+	.row{
+		display: flex;
+		align-items: center;
+	}
+}
+
+.img{
+	&-saturacion{
+		padding-left: 50px;
+	}
+	&-analizar{
+		padding-left: 40px;
+		width: 400px;
+	}
+	&-ranking{
+		padding-left: 60px;
+	}
+}
+
+.leyendas{
+	article{
+		margin-bottom: 1.5em;
 	}
 }
 
@@ -107,11 +129,6 @@ p{
 	}
 }
 
-section{
-	margin: 1em 0;
-	padding: 1em 0;
-}
-
 .center{
 	text-align: center;
 }
@@ -123,34 +140,6 @@ section{
 	p{
 		@extend .border-bottom;
 		padding-bottom: 1em;
-	}
-}
-
-select.form-control{
-	margin-bottom: 1em;
-	width: inherit;
-}
-
-label{
-	color: white;
-	margin-bottom: 10px;
-	padding: 6px 7px;
-}
-
-footer{
-	background: $tbj;
-	border-top: 4px solid white;
-	color: white;
-	padding: 20px 0;
-	p{
-		color: white;
-	}
-	img{
-		width: 100%;
-	}
-	.row{
-		display: flex;
-		align-items: center;
 	}
 }
 

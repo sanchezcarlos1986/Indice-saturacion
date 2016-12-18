@@ -12,25 +12,34 @@ var gulp 		= require('gulp'),
 	imagemin 		= require('gulp-imagemin'),
 	mainBowerFiles = require('gulp-main-bower-files'),
 	series = require('stream-series'),
+	gulpFilter = require('gulp-filter'),
 	reload      = browserSync.reload;
 
 gulp.task('bower', function() {
+	var filterJS = gulpFilter('**/*.js', { restore: true });
+	var filterCSS = gulpFilter('**/*.css', { restore: true });
     return gulp.src('./bower.json')
         .pipe(mainBowerFiles({
             overrides: {
                 bootstrap: {
                     main: [
-                        './dist/js/*.min.*',
-                        './dist/css/*.min.*',
-                        './dist/fonts/*.*'
+                        // './dist/js/*.min.*',
+                        './dist/css/*.min.css',
+                        // './dist/fonts/*.*'
                     ]
                 },
                 jquery: { main: [ './dist/*.min.*' ] },
                 angular: { main: [ './*.min.js' ] },
-                'angular-ui-router': { main: [ './release/*.min.js' ] },
-                'font-awesome': { ignore: true}
+                'angular-ui-router': { main: [ './release/*.min.js' ] }
             }
         }))
+        .pipe(filterJS)
+        .pipe(concat('vendor.min.js'))
+        .pipe(uglify())
+        .pipe(filterJS.restore)
+        .pipe(filterCSS)
+        .pipe(concat('vendor.min.css'))
+        .pipe(filterCSS.restore)
         .pipe(gulp.dest('./public/vendor'));
 });
 
@@ -94,7 +103,7 @@ gulp.task('views', function() {
 		}
 	}))	
 	.pipe(pug({
-		pretty : true 
+		pretty : false 
 	}))	
 
 	.pipe(gulp.dest('./public/views')); 
@@ -116,6 +125,7 @@ gulp.task('scripts', function(){
 	.pipe(uglify({
 		mangle: false
 	}))
+	.pipe(concat('app.min.js'))
 	.pipe(gulp.dest('./public/assets/js'));
 });
 
@@ -134,6 +144,7 @@ gulp.task('estilos', function(){
 		}))
 		.pipe(sass())
 		.pipe(cleanCSS({compatibility: 'ie8'}))
+		.pipe(concat('app.min.css'))
 		.pipe(gulp.dest('./public/assets/css')); 
 });
 

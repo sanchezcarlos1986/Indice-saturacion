@@ -1,1 +1,0 @@
-!function(){function HomeController($http){var vm=this;vm.saludo="Índice Saturación",$http.get("./carreras.json").success(function(resultado){vm.carreras=resultado})}angular.module("homeController",[]).controller("homeController",HomeController)}();

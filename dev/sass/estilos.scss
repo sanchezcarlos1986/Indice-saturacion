@@ -69,6 +69,10 @@ footer{
 		display: flex;
 		align-items: center;
 	}
+	.col-sm-4{
+		display: flex;
+		justify-content: flex-end;
+	}
 }
 
 .img{

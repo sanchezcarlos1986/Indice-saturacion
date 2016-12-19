@@ -47,27 +47,27 @@ main
 						//- Ranking
 						div.ranking
 							.demanda.center
-								.circle.verde {{item.rank_demanda}}
+								div(class="circle {{item.campo_laboral}}") {{item.rank_demanda}}
 								strong Ranking #[br] Demanda
 							.postulaciones.center
-								.circle.rojo {{item.rank_post}}
+								div(class="circle {{item.competitividad}}") {{item.rank_post}}
 								strong Ranking #[br] Postulaciones
 							.saturacion.center
-								.circle.burdeo {{item.rank_saturacion}}
+								div(class="circle {{item.saturacion}}") {{item.rank_saturacion}}
 								strong Ranking #[br] Saturación
 
 				//- Leyendas
 				section.leyendas
 					article
-						label.verde Ranking Demanda
+						label Ranking Demanda
 						p A menor ranking la carrera se encuentra dentro de las más solicitadas por las empresas en Trabajando.com, es decir, un mayor campo laboral, Color Rojo indica baja demanda, color amarillo indica demanda media, color verde indica, alta demanda.
 
 					article
-						label.rojo Ranking de Competitividad
+						label Ranking de Competitividad
 						p A menor ranking la carrera se encuentra dentro de las postuladas por las personas en Trabajando.com, es decir, un aviso de Trabajando.com recibe un mayor numero de postulaciones por lo que un postulante tiene mayor competencia para alcanzar un trabajo.Color Rojo indica alto nivel de postulantes, Color Amarillo indica nivel de postulantes medio, color verde indica nivel de postulantes bajo.
 
 					article
-						label.burdeo Ranking Saturación
+						label Ranking Saturación
 						p Es la mezcla de las variables anteriores que indica el nivel de saturación general de las distintas carreras. A menor ranking más saturada, indica el numero de veces más o menos de candidadtos respecto del promedio de mercado (1). Color Verde indica nivel de saturación Baja, color amarillo saturación media o cercana al promedio de mercado y color rojo indica saturación alta.
 
 footer

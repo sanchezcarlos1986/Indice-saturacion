@@ -1,11 +1,8 @@
 @import './fonts';
 
-$bueno : #2ecc71;
+$bueno : #238c00;
 $medio : #f1c40f;
-$malo : #c0392b;
-$verde : #238c00;
-$rojo : red;
-$burdeo : #890e0e;
+$malo : red;
 $tbj : #386fa8;
 $azul : #0f2553;
 $gris : #6e7174;
@@ -13,9 +10,6 @@ $gris : #6e7174;
 .bueno{ background: $bueno;	}
 .medio{ background: $medio;	}
 .malo{ background: $malo; }
-.verde{ background: $verde;	}
-.rojo{ background: $rojo;	}
-.burdeo{ background: $burdeo; }
 
 body{
 	background: url('../img/background.jpg') no-repeat center 0 / 2400px;
@@ -52,9 +46,10 @@ select.form-control{
 }
 
 label{
-	color: white;
+	color: $azul;
+	font-family: 'Apex New Bold';
 	margin-bottom: 10px;
-	padding: 6px 7px;
+	padding: 6px 0;
 }
 
 footer{

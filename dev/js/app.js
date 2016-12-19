@@ -9,7 +9,7 @@
 			'homeController'
 		])
 
-	.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
+	.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider){
 			$stateProvider
 				.state('home', { // Home
 					url: '/',
@@ -19,6 +19,9 @@
 				})
 				
 				$urlRouterProvider.otherwise("/");
+
+			$locationProvider.html5Mode(true);
+			$locationProvider.hashPrefix('!');		
 	}]);
 
 	document.documentElement.addEventListener('touchstart', function (event) {

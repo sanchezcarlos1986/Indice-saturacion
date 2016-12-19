@@ -10,20 +10,6 @@
 		text-align: justify;
 	}
 
-	footer{
-		.row{ 
-			display: block;
-		}
-		img{
-			margin-top: 2em; 
-		}
-	}
-
-	select.form-control{
-		border: 3px solid #999;
-		width: 100%;
-	}
-
 	img,
 	img[class^="img-"]{
 		display: block;
@@ -35,6 +21,22 @@
 		padding: 0;
 		margin-bottom: 10px;
 	}
+
+	footer{
+		.row{ 
+			display: block;
+		}
+		img{
+			margin-top: 1.5em;
+			width: inherit;
+		}
+	}
+
+	select.form-control{
+		border: 3px solid #999;
+		width: 100%;
+	}	
+
 }
 
 @media screen and (max-width: 480px){

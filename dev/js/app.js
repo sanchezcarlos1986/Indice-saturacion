@@ -20,8 +20,8 @@
 				
 				$urlRouterProvider.otherwise("/");
 
-			$locationProvider.html5Mode(true);
-			$locationProvider.hashPrefix('!');		
+			// $locationProvider.html5Mode(true);
+			// $locationProvider.hashPrefix('!');		
 	}]);
 
 	document.documentElement.addEventListener('touchstart', function (event) {

@@ -89,7 +89,7 @@ gulp.task('inject',['bower','templates', 'scripts', 'estilos', 'images'], functi
 	var target = gulp.src('./index.html');
 	var vendor = gulp.src(['./public/vendor/**/*.js', './public/vendor/**/*.css'], {read: false});
 	var app = gulp.src(['./public/assets/**/*.js', './public/assets/**/*.css'], {read: false});
-	return target.pipe( inject(series(vendor, app), {relative: false})  )
+	return target.pipe( inject(series(vendor, app))  )
 	.pipe(gulp.dest('./'));
 });
 

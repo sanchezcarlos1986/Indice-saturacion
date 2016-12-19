@@ -34,10 +34,9 @@ main
 
 						p(ng-if="item.campo_laboral == 'medio' && item.competitividad == 'medio' ") Carrera de Nicho, tiene un campo laboral medio y una cantidad de profesionales adecuados a las necesidades. La dispersión en la Saturación de este segmento es amplia, pero en general son carreras estables donde puedes encontrar interesantes oportunidades.
 
-						p(ng-if="item.campo_laboral == 'medio' && item.competitividad == 'malo' ") Carrera Riesgosa, ya que si bien el campo laboral medio, pero cantidad de profesionales que exceden las necesidades de mercado. Encontrarás carreras con niveles de saturación alta, salvo un par de excepciones. Debes elegir muy bien!.
+						p(ng-if="item.campo_laboral == 'medio' && item.competitividad == 'malo' ") Carrera Riesgosa, ya que si bien el campo laboral medio, pero cantidad de profesionales que exceden las necesidades de mercado. Te encontrarás con carreras con niveles de saturación alta, salvo un par de excepciones. Debes elegir muy bien!.
 
-						p(ng-if="item.campo_laboral == 'malo' && item.competitividad == 'bueno' ") Carrera Emergente, un campo laboral reducido, pero también muy pocos candidatos, pueden tranformarse en oportunidad, pero su vez pueden ser riesgosas. Ojo con tu elección.
-
+						p(ng-if="item.campo_laboral == 'malo' && item.competitividad == 'bueno' ") Carrera Emergente, campo laboral reducido, pero existen pocos candidatos, lo que puede transformarse en una oportunidad, aunque puede ser riesgosa. Ojo con tu elección.
 						p(ng-if="item.campo_laboral == 'malo' && item.competitividad == 'medio' ") Carrera de Nicho, tiene un campo estrecho y una cantidad de profesionales adecuados a las necesidades, por lo cual puede ser una oportunidad, pero a su vez pueden ser muy riesgosa.
 
 						p(ng-if="item.campo_laboral == 'malo' && item.competitividad == 'malo' ") Carrera con con bajo campo laboral y alto número de postulantes, segmento más riesgoso.
@@ -60,15 +59,15 @@ main
 				section.leyendas
 					article
 						label Ranking Demanda
-						p A menor ranking la carrera se encuentra dentro de las más solicitadas por las empresas en Trabajando.com, es decir, un mayor campo laboral, Color Rojo indica baja demanda, color amarillo indica demanda media, color verde indica, alta demanda.
+						p A menor ranking la carrera se encuentra dentro de las más solicitadas por las empresas en Trabajando.com, es decir, con un mayor campo laboral. Color rojo indica baja demanada, amarillo demanda media y verde alta demanda.
 
 					article
 						label Ranking de Competitividad
-						p A menor ranking la carrera se encuentra dentro de las más postuladas por las personas en Trabajando.com, es decir, un aviso de Trabajando.com recibe un mayor numero de postulaciones por lo que un postulante tiene mayor competencia para alcanzar un trabajo.Color Rojo indica alto nivel de postulantes, Color Amarillo indica nivel de postulantes medio, color verde indica nivel de postulantes bajo.
+						p A menor ranking la carrera se encuentra dentro de las más postuladas por las personas en Trabajando.com, es decir, un aviso de Trabajando.com recibe un mayor número de postulaciones, por lo que, existe una mayor competencia para alcanzar un trabajo. Color rojo indica alto número de postulantes, amarillo nivel medio de postulantes y verde bajo número de postulantes.
 
 					article
 						label Índice de Saturación
-						p Es la mezcla de las variables anteriores que indica el nivel de saturación general de las distintas carreras. A menor ranking más saturada, indica el numero de veces más o menos de candidadtos respecto del promedio de mercado (1). Color Verde indica nivel de saturación Baja, color amarillo saturación media o cercana al promedio de mercado y color rojo indica saturación alta.
+						p Es la mezcla de las variables anteriores que indica el nivel de saturación general de las distintas carreras. El índice de saturación, indica la cantidad de veces respecto al promedio de mercado que una oferta laboral publicada en Trabajando.com para determinada carrera recibe postulaciones. Por ejemplo, si en promedio en nuestro portal por cada aviso publicado, se reciben 100 postulaciones, el índice de saturación de 1,71 de una carrera, dice que por cada aviso publicado que busca a este tipo de profesional, existen 171 postulaciones. Color Verde indica nivel de saturación Baja, color amarillo saturación media o cercana al promedio de mercado y color rojo indica saturación alta.
 
 footer
 	.container
@@ -79,4 +78,5 @@ footer
 				p El estudio considera 202 de las 283 carreras genéricas, las cuales pueden ser representadas razonablemente.
 				p La información contenida en el presente estudio refleja el comportamiento de la oferta y demanda de empleo en Trabajando.com, durante el 2016, por lo que algunas carreras, por su naturaleza y uso de otras fuentes de reclutamiento, podrían no estar representadas correctamente. Se recomienda comparar estos datos con otras fuentes de información o expertos.
 			.col-sm-4
-				img(src="./public/assets/img/trabajando-com.png" alt="Trabajando.com" class="fullwidth")
+				a(href="http://www.trabajando.cl/registro" target="_blank") Empieza por el primer paso creando tu currículum
+					img(src="./public/assets/img/trabajando-com.png" alt="Trabajando.com" class="fullwidth")

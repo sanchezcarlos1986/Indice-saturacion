@@ -68,6 +68,18 @@ footer{
 		display: flex;
 		justify-content: flex-end;
 	}
+
+	a{
+		color: $medio;
+		display: block;
+		text-align: center;
+		&:hover{
+			color: $medio;
+		}
+		img{
+			margin-top: 10px;
+		}
+	}
 }
 
 .img{

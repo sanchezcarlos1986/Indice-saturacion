@@ -137,10 +137,16 @@ footer{
 	text-align: center;
 }
 
+@keyframes opacidad{
+	0% {opacity: 0}
+	100% {opacity: 1}
+}
+
 .carrera-info{
 	@extend .border-bottom;
 	padding-top: 1em;
 	padding-bottom: 1em;
+	animation: opacidad 1.5s;
 	p{
 		@extend .border-bottom;
 		padding-bottom: 1em;

@@ -28,7 +28,7 @@ gulp.task('bower', function() {
                         // './dist/fonts/*.*'
                     ]
                 },
-                jquery: { main: [ './dist/*.min.*' ] },
+                // jquery: { main: [ './dist/*.min.*' ] },
                 angular: { main: [ './*.min.js' ] },
                 'angular-ui-router': { main: [ './release/*.min.js' ] }
             }
@@ -68,7 +68,7 @@ gulp.task('templates',['views'], function() {
 		}
 	}))	
 	.pipe(pug({
-		pretty : true 
+		pretty : false 
 	}))
 
 	.pipe(gulp.dest('./'));

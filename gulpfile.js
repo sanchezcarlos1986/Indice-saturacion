@@ -44,7 +44,7 @@ gulp.task('bower', function() {
 });
 
 // browserSync
-gulp.task('browser-sync', function(){
+gulp.task('browser-sync', ['inject'], function(){
 	browserSync.init(["./public/assets/css/*.css" , "./public/assets/js/*.js" , "./**/*.html"],{
 		open: true,
 		server: {
@@ -85,7 +85,7 @@ gulp.task('images', ['clean-img'], function() {
 	.pipe(gulp.dest('./public/assets/img')); 
 });
 
-gulp.task('inject',['bower','templates', 'scripts', 'estilos'], function(){
+gulp.task('inject',['bower','templates', 'scripts', 'estilos', 'images'], function(){
 	var target = gulp.src('./index.html');
 	var vendor = gulp.src(['./public/vendor/**/*.js', './public/vendor/**/*.css'], {read: false});
 	var app = gulp.src(['./public/assets/**/*.js', './public/assets/**/*.css'], {read: false});

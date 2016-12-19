@@ -30,4 +30,20 @@
 	  }
 	}, false);
 
+	$(window).scroll(function(){
+		if( $('body').scrollTop() > 800 ){
+			$('body').css({
+				'background-attachment':'initial',
+				'background-position': 'center 141%'
+			});
+		} else {
+			$('body').css({
+				'background-attachment':'fixed',
+				'background-position': 'center 40%'
+			});
+		}
+	});
+			
+
+
 })();

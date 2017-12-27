@@ -9,7 +9,7 @@
 			'homeController'
 		])
 
-	.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
+	.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider){
 			$stateProvider
 				.state('home', { // Home
 					url: '/',
@@ -19,6 +19,9 @@
 				})
 				
 				$urlRouterProvider.otherwise("/");
+
+			// $locationProvider.html5Mode(true);
+			// $locationProvider.hashPrefix('!');		
 	}]);
 
 	document.documentElement.addEventListener('touchstart', function (event) {
@@ -26,5 +29,21 @@
 	    event.preventDefault();
 	  }
 	}, false);
+
+	// $(window).scroll(function(){
+	// 	if( $('body').scrollTop() > 800 ){
+	// 		$('body').css({
+	// 			'background-attachment':'initial',
+	// 			'background-position': 'center 141%'
+	// 		});
+	// 	} else {
+	// 		$('body').css({
+	// 			'background-attachment':'fixed',
+	// 			'background-position': 'center 40%'
+	// 		});
+	// 	}
+	// });
+			
+
 
 })();

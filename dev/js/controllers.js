@@ -8,7 +8,7 @@
 			var vm = this;
 			vm.saludo = 'Índice Saturación';
 
-			$http.get('./carreras.json')
+			$http.get('./carreras2017.json')
 			.success(function(resultado){
 				vm.carreras = resultado;
 			});

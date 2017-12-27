@@ -1,11 +1,8 @@
 @import './fonts';
 
-$bueno : #2ecc71;
+$bueno : #238c00;
 $medio : #f1c40f;
-$malo : #c0392b;
-$verde : #238c00;
-$rojo : red;
-$burdeo : #890e0e;
+$malo : red;
 $tbj : #386fa8;
 $azul : #0f2553;
 $gris : #6e7174;
@@ -13,12 +10,9 @@ $gris : #6e7174;
 .bueno{ background: $bueno;	}
 .medio{ background: $medio;	}
 .malo{ background: $malo; }
-.verde{ background: $verde;	}
-.rojo{ background: $rojo;	}
-.burdeo{ background: $burdeo; }
 
 body{
-	background: url('../img/background.jpg') no-repeat center 0 / 2400px;
+	background: url('../img/background.jpg') no-repeat center 40% / 1800px fixed;
 	font: 16px 'Apex New Book';
 }
 
@@ -52,9 +46,10 @@ select.form-control{
 }
 
 label{
-	color: white;
+	color: $azul;
+	font-family: 'Apex New Bold';
 	margin-bottom: 10px;
-	padding: 6px 7px;
+	padding: 6px 0;
 }
 
 footer{
@@ -62,6 +57,7 @@ footer{
 	border-top: 4px solid white;
 	color: white;
 	padding: 20px 0;
+	text-align: justify;
 	p{
 		color: white;
 	}
@@ -72,6 +68,18 @@ footer{
 	.col-sm-4{
 		display: flex;
 		justify-content: flex-end;
+	}
+
+	a{
+		color: $medio;
+		display: block;
+		text-align: center;
+		&:hover{
+			color: $medio;
+		}
+		img{
+			margin-top: 10px;
+		}
 	}
 }
 
@@ -137,10 +145,16 @@ footer{
 	text-align: center;
 }
 
+@keyframes opacidad{
+	0% {opacity: 0}
+	100% {opacity: 1}
+}
+
 .carrera-info{
 	@extend .border-bottom;
 	padding-top: 1em;
 	padding-bottom: 1em;
+	animation: opacidad 1.5s;
 	p{
 		@extend .border-bottom;
 		padding-bottom: 1em;

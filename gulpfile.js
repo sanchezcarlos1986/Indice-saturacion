@@ -49,7 +49,8 @@ gulp.task('browser-sync', ['inject'], function(){
 		open: true,
 		server: {
 			baseDir: "./"
-		}
+		},
+		browser: 'chrome'
 	});
 });
 
